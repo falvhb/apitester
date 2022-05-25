@@ -1,0 +1,24 @@
+{
+  "name": "apitester",
+  "version": "1.0.0",
+  "description": "Sleek GET API tests",
+  "main": "index.js",
+  "bin": {
+    "apitester": "./index.js"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "BASE_URL=\"http://localhost:4200/api/content\" apitester"
+  },
+  "nodemonConfig": {
+    "ignore": ["*_is/**/*.json"]
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-diff": "^0.7.4",
+    "node-fetch": "^3.2.4",
+    "traverse": "^0.6.6",
+    "walkdir": "^0.4.1"
+  }
+}
