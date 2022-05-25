@@ -2,7 +2,7 @@
 
 Fetch some endpoints, compare results to baseline. Success.
 
-    npm i apitester
+    npm i @falvhb/apitester
 
 Add to package.json
 
@@ -35,7 +35,7 @@ and compare the results to the local file.
 Set the BASE_FOLDER env variable, e.g.
 
     "scripts": {
-      "test": "BASEFOLDER=tests BASE_URL=\"http://localhost:8080\" apitester"
+      "test": "BASE_FOLDER=tests BASE_URL=\"http://localhost:8080\" apitester"
     },
 
 ### Slash handling
