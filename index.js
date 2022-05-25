@@ -2,7 +2,7 @@
 import traverse from "traverse";
 import walk from "walkdir";
 import fetch from "node-fetch";
-import { readFileSync, writeFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import jsonDiff from "json-diff";
 import { dirname } from "path";
 import { Test } from "./src/test.js";
