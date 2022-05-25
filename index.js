@@ -2,7 +2,7 @@
 import traverse from "traverse";
 import walk from "walkdir";
 import fetch from "node-fetch";
-import { readFileSync, writeFileSync } from "fs";
+import { readFileSync, writeFileSync , mkdirSync} from "fs";
 import jsonDiff from "json-diff";
 import { dirname } from "path";
 import { Test } from "./src/test.js";
@@ -92,7 +92,7 @@ for await (const path of files) {
       // write current
 
       const isPath = path.replace(BASE_FOLDER, BASE_FOLDER + "_is");
-      writeFileSync(
+      mkdirSync(
         dirname(isPath),
         {
           recursive: true,
