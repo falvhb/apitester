@@ -46,3 +46,18 @@ You can replace a slash `/` in the path with `*slash*`:
 will also fetch
 
     http://localhost:8080/test/info
+
+
+## Adding tests shorthand method
+
+Add to package.json
+
+    "scripts": {
+      "add": "REMOVE_PATH=\"/api/content\" apitester add"
+    },
+
+and run it with
+
+    npm run add -- http://localhost:4200/api/content/test/content/
+
+The `REMOVE_PATH` variable is totally optional.
