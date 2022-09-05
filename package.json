@@ -1,6 +1,6 @@
 {
   "name": "@falvhb/apitester",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Sleek GET API tests",
   "main": "index.js",
   "bin": {

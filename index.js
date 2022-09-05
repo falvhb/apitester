@@ -8,6 +8,8 @@ import { dirname } from "path";
 import { Test } from "./src/test.js";
 import { fetchJSONFile } from "./src/helper.js";
 
+const SLASH = '*slash*';
+
 const BASE_URL = process.env.BASE_URL || "http://localhost:8080";
 
 const BASE_FOLDER = process.env.BASE_FOLDER || "baseline";
@@ -46,7 +48,6 @@ switch (myArgs[0]) {
     }
 
     const urlWithRemovedPath = url.pathname.replace(REMOVE_PATH, "");
-    console.log(`Adding new test: ${urlWithRemovedPath}...`);
 
     if (url && !url.pathname) {
       console.error(`Can not determine url path`);
@@ -55,7 +56,18 @@ switch (myArgs[0]) {
 
     const json = await fetchJSONFile(url);
 
-    const usePath = "./" + BASE_FOLDER + urlWithRemovedPath + ".json";
+    // replace last / with *slash* for readability
+
+    let urlPath = urlWithRemovedPath;
+    if (urlWithRemovedPath.slice(-1) === '/'){
+      urlPath = urlWithRemovedPath.slice(0, -1) + SLASH; 
+    }
+    urlPath = urlPath + url.search;
+
+    const usePath = "./" + BASE_FOLDER + urlPath + ".json";
+
+    console.log(`Adding new test: "${urlPath}"...`);
+
 
     mkdirSync(
       dirname(usePath),
